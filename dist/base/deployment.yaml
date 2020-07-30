@@ -12,8 +12,8 @@ spec:
   # downtimeAllowed: false
   externalAccess:
     type: NodePort
-  # auth:
-  #   jwtSecretName: None
+  auth:
+    jwtSecretName: None
   tls:
     caSecretName: None
   agents: # agents of a cluster
