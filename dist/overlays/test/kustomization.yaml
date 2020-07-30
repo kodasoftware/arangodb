@@ -3,3 +3,22 @@ kind: Kustomization
 namespace: test
 resources:
   - ../../base
+patches:
+  - target:
+      group: database.arangodb.com
+      version: v1alpha
+      kind: ArangoDeployment
+      name: arangodb
+    patch: |-
+      - op: add
+        path: /spec/agents/nodeSelector
+        value:
+          cloud.google.com/gke-nodepool: test
+      - op: add
+        path: /spec/dbservers/nodeSelector
+        value:
+          cloud.google.com/gke-nodepool: test
+      - op: add
+        path: /spec/coordinators/nodeSelector
+        value:
+          cloud.google.com/gke-nodepool: test

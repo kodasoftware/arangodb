@@ -1,0 +1,44 @@
+## See https://www.arangodb.com/docs/stable/deployment-kubernetes-deployment-resource.html#specification-reference
+apiVersion: database.arangodb.com/v1alpha
+kind: ArangoDeployment
+metadata:
+  name: arangodb
+spec:
+  mode: Cluster
+  image: arangodb/arangodb:3.6
+  imagePullPolicy: Always
+  environment: Production
+  storageEngine: RocksDB
+  downtimeAllowed: false
+  externalAccess:
+    type: NodePort
+  auth:
+    jwtSecretName: None
+  tls:
+    caSecretName: None
+  agents: # agents of a cluster
+    count: 3
+    minCount: 1
+    maxCount: 5
+    # args: #command line args passed to the group
+    nodeSelector:
+  dbservers: # dbservers of a cluster
+    count: 3
+    minCount: 1
+    maxCount: 5
+    # args: #command line args passed to the group
+    volumeClaimTemplate:
+      Spec:
+        PersistentVolumeClaimSpec:
+          resources:
+            requests:
+              storage: 20Gi
+          accessModes:
+            - ReadWriteOnce
+    nodeSelector:
+  coordinators: # coordinators of a cluster
+    count: 3
+    minCount: 1
+    maxCount: 5
+    # args: #command line args passed to the group
+    nodeSelector:
