@@ -7,7 +7,7 @@ spec:
   mode: Cluster
   image: arangodb/arangodb:3.6.1
   imagePullPolicy: Always
-  environment: Production
+  environment: Development
   # storageEngine: RocksDB
   # downtimeAllowed: false
   externalAccess:
