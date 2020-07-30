@@ -12,15 +12,23 @@ spec:
   downtimeAllowed: false
   externalAccess:
     type: NodePort
-  auth:
-    jwtSecretName: None
-  tls:
-    caSecretName: None
+  # auth:
+  #   jwtSecretName: None
+  # tls:
+  #   caSecretName: None
   agents: # agents of a cluster
     count: 3
     minCount: 1
     maxCount: 5
     # args: #command line args passed to the group
+    volumeClaimTemplate:
+      Spec:
+        PersistentVolumeClaimSpec:
+          resources:
+            requests:
+              storage: 20Gi
+          accessModes:
+            - ReadWriteOnce
     nodeSelector:
   dbservers: # dbservers of a cluster
     count: 3
@@ -42,5 +50,5 @@ spec:
     maxCount: 5
     # args: #command line args passed to the group
     nodeSelector:
-  bootstrap:
-    passwordSecretName: Auto
+  # bootstrap:
+  #   passwordSecretName: Auto
