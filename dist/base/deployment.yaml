@@ -42,3 +42,5 @@ spec:
     maxCount: 5
     # args: #command line args passed to the group
     nodeSelector:
+  bootstrap:
+    passwordSecretName: Auto
