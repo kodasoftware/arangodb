@@ -22,3 +22,30 @@ patches:
         path: /spec/coordinators/nodeSelector
         value:
           cloud.google.com/gke-nodepool: test
+      - op: replace
+        path: /spec/agents/count
+        value: 3
+      - op: add
+        path: /spec/agents/minCount
+        value: 1
+      - op: add
+        path: /spec/agents/maxCount
+        value: 5
+      - op: replace
+        path: /spec/dbservers/count
+        value: 3
+      - op: add
+        path: /spec/dbservers/minCount
+        value: 1
+      - op: add
+        path: /spec/dbservers/maxCount
+        value: 5
+      - op: replace
+        path: /spec/coordinators/count
+        value: 3
+      - op: add
+        path: /spec/coordinators/minCount
+        value: 1
+      - op: add
+        path: /spec/coordinators/maxCount
+        value: 5

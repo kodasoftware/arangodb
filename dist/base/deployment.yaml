@@ -18,7 +18,7 @@ spec:
     caSecretName: None
   agents: # agents of a cluster
     count: 3
-    minCount: 1
+    minCount: 3
     maxCount: 5
     # args: #command line args passed to the group
     # volumeClaimTemplate:
@@ -32,7 +32,7 @@ spec:
     nodeSelector:
   dbservers: # dbservers of a cluster
     count: 3
-    minCount: 1
+    minCount: 3
     maxCount: 5
     args: #command line args passed to the group
     # volumeClaimTemplate:
@@ -46,7 +46,7 @@ spec:
     nodeSelector:
   coordinators: # coordinators of a cluster
     count: 3
-    minCount: 1
+    minCount: 3
     maxCount: 5
     # args: #command line args passed to the group
     nodeSelector:
