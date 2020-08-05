@@ -9,7 +9,7 @@ spec:
   imagePullPolicy: Always
   environment: Development
   # storageEngine: RocksDB
-  # downtimeAllowed: false
+  downtimeAllowed: false
   externalAccess:
     type: NodePort
   # auth:
